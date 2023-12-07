@@ -67,7 +67,7 @@ class LibraryManagementSystem:
 
         if len(self.books) > 0:
             for book in self.books:
-                result_text.insert(tk.END, f" Title       : {book['title']} \n Author      : {book['author']} \n ISBN        : {book['isbn']} \n Quantity    : {book['quantity']} \n Price       : {book['price']}\n")
+                result_text.insert(tk.END, f" Title       : {book['title']} \n Author      : {book['author']} \n ISBN        : {book['isbn']} \n Quantity    : {book['quantity']} \n Price       : ₹ {book['price']}\n")
         else:
             result_text.insert(tk.END, "SORRY! NO BOOKS AVAILABLE CURRENTLY\n")
 
