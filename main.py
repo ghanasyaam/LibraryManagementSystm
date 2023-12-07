@@ -62,11 +62,12 @@ class LibraryManagementSystem:
 
 
     def display_books(self):
-        result_text.delete("1.0", tk.END) 
+        result_text.delete("1.0", tk.END)
         result_text.insert(tk.END, "\nLibrary Books:\n")
+
         if len(self.books) > 0:
             for book in self.books:
-                result_text.insert(tk.END, f" Title: {book['title']} \n Author: {book['author']} \n ISBN: {book['isbn']} \n Quantity: {book['quantity']} \n Price: {book['price']}\n")
+                result_text.insert(tk.END, f" Title       : {book['title']} \n Author      : {book['author']} \n ISBN        : {book['isbn']} \n Quantity    : {book['quantity']} \n Price       : {book['price']}\n")
         else:
             result_text.insert(tk.END, "SORRY! NO BOOKS AVAILABLE CURRENTLY\n")
 
