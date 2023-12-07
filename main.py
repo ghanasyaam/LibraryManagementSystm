@@ -14,8 +14,19 @@ class LibraryManagementSystem:
         title = simpledialog.askstring("Input", "Enter book title:")
         author = simpledialog.askstring("Input", "Enter author:")
         isbn = simpledialog.askstring("Input", "Enter ISBN:")
-        quantity = int(simpledialog.askstring("Input", "Enter quantity:"))
-        price = float(simpledialog.askstring("Input", "Enter price:"))
+        
+        while True:
+            try:
+                quantity = int(simpledialog.askstring("Input", "Enter quantity:"))
+                break
+            except Exception as e:
+                result_text.insert(tk.END,"Invalid quantity !\n")
+        while True:
+            try:
+                price = float(simpledialog.askstring("Input", "Enter price:"))
+                break
+            except Exception as e:
+                result_text.insert(tk.END,"Invalid price !\n")
 
         book = {
             'title': title,
@@ -127,7 +138,6 @@ def handle_button_click(choice):
     else:
         result_text.insert(tk.END, "Invalid choice. Please enter a number between 1 and 8.\n")
 
-# GUI components
 label = tk.Label(root, text="Library Management System Menu")
 label.pack()
 
@@ -137,7 +147,7 @@ bold_font = font.Font(weight="bold")
 
 
 for i, button_text in enumerate(options):
-    button = tk.Button(root, text=button_text, command=lambda i=i: handle_button_click(str(i)), width=40, bg='gray', pady=5, font=bold_font)
+    button = tk.Button(root, text=button_text, command=lambda i=i+1: handle_button_click(str(i)), width=40, bg='gray', pady=5, font=bold_font)
     button.pack()
     print(i)
 
